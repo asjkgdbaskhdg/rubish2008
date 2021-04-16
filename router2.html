@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <a href="" v-on:click.prevent="login">登录</a>
+    <a href="" v-on:click.prevent="reg">注册</a>
+
+    <user-login v-if="a"></user-login>
+    <user-reg v-if="b"></user-reg>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component("user-login",{
+        template:"<h1>登录</h1>"
+    })
+    Vue.component("user-reg",{
+        template:"<h1>注册</h1>"
+    })
+    new Vue({
+        el:"#app",
+        data:{
+            a:false,
+            b:false
+        },
+        methods:{
+            login(){
+                this.a=true
+                this.b=false
+            },
+            reg(){
+                this.a=false
+                this.b=true
+            }
+        }
+    })
+</script>
+</body>
+</html>
